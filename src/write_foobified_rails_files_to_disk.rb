@@ -42,31 +42,9 @@ module Foobara
 
         def run_post_generation_tasks
           Dir.chdir output_directory do
-            chmod_u_plus_x
             bundle_install
             rubocop_autocorrect
           end
-        end
-
-        def chmod_u_plus_x
-          cmd = "chmod u+x '#{program_path}'"
-          puts "executing: #{cmd}"
-
-          Bundler.with_unbundled_env do
-            Open3.popen3(cmd) do |_stdin, _stdout, stderr, wait_thr|
-              exit_status = wait_thr.value
-
-              unless exit_status.success?
-                # :nocov:
-                warn "WARNING: could not #{cmd}\n#{stderr.read}"
-                # :nocov:
-              end
-            end
-          end
-        end
-
-        def program_path
-          foobify_rails_app_config.program_path
         end
 
         # TODO: is this not in the base class?
@@ -100,12 +78,14 @@ module Foobara
           puts "linting..."
           cmd = "bundle exec rubocop --no-server -A"
 
-          Open3.popen3(cmd) do |_stdin, stdout, stderr, wait_thr|
-            exit_status = wait_thr.value
-            unless exit_status.success?
-              # :nocov:
-              warn "WARNING: could not #{cmd}.\n#{stdout.read}\n#{stderr.read}"
-              # :nocov:
+          Bundler.with_unbundled_env do
+            Open3.popen3(cmd) do |_stdin, stdout, stderr, wait_thr|
+              exit_status = wait_thr.value
+              unless exit_status.success?
+                # :nocov:
+                warn "WARNING: could not #{cmd}.\n#{stdout.read}\n#{stderr.read}"
+                # :nocov:
+              end
             end
           end
         end

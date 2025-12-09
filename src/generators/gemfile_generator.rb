@@ -12,18 +12,18 @@ module Foobara
           end
 
           def need_to_add_foobara?
-            gemfile_contents !~ /^\s*gem\s*["']foobara\b["']]/
+            gemfile_contents !~ /^\s*gem\s*["']foobara\b["']/
           end
 
           def need_to_add_foobara_active_record_type?
             if foobify_rails_app_config.use_active_record_type?
-              gemfile_contents !~ /^\s*gem\s*["']foobara-active-record-type\b["']]/
+              gemfile_contents !~ /^\s*gem\s*["']foobara-active-record-type\b["']/
             end
           end
 
           def need_to_add_foobara_rails_command_connector?
             if foobify_rails_app_config.use_rails_command_connector?
-              gemfile_contents !~ /^\s*gem\s*["']foobara-rails-command-connector\b["']]/
+              gemfile_contents !~ /^\s*gem\s*["']foobara-rails-command-connector\b["']/
             end
           end
 

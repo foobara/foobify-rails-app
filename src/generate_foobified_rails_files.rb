@@ -27,7 +27,7 @@ module Foobara
         attr_accessor :manifest_data
 
         def base_generator
-          BaseGenerator
+          Generators::BaseGenerator
         end
 
         # TODO: delegate this to base_generator
