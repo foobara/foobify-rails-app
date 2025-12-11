@@ -9,7 +9,10 @@ module Foobara
             def manifest_to_generator_classes(manifest)
               case manifest
               when FoobifyRailsAppConfig
-                Generators::GemfileGenerator
+                [
+                  Generators::GemfileGenerator,
+                  ConfigApplicationGenerator
+                ]
               else
                 # :nocov:
                 raise "Not sure how build a generator for a #{manifest}"

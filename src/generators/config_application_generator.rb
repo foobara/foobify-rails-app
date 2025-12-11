@@ -6,7 +6,7 @@ module Foobara
       module Generators
         class ConfigApplicationGenerator < BaseGenerator
           def applicable?
-            File.exist?(template_path) && application_rb_contents =~ /Rails\.root\.join.*\bapp\b.*\bcommands\b/
+            File.exist?(template_path) && application_rb_contents !~ /Rails\.root\.join.*\bapp\b.*\bcommands\b/
           end
 
           def template_path

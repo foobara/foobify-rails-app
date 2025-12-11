@@ -50,7 +50,9 @@ module Foobara
         # TODO: is this not in the base class?
         def bundle_install
           unless File.exist?("Gemfile")
+            # :nocov:
             return
+            # :nocov:
           end
 
           puts "bundling..."
@@ -72,7 +74,9 @@ module Foobara
         # TODO: is this not in the base class?
         def rubocop_autocorrect
           unless File.exist?(".rubocop.yml")
+            # :nocov:
             return
+            # :nocov:
           end
 
           puts "linting..."

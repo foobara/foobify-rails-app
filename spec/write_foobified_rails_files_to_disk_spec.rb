@@ -45,7 +45,7 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::WriteFoobifiedRailsFilesToD
 
       expect(
         command.paths_to_source_code.keys
-      ).to contain_exactly("Gemfile")
+      ).to contain_exactly("Gemfile", "config/application.rb")
     end
 
     it "updates the Gemfile" do
@@ -54,6 +54,47 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::WriteFoobifiedRailsFilesToD
       expect(
         command.paths_to_source_code["Gemfile"]
       ).to include('gem "foobara"')
+    end
+
+    context "when using foobara-rails-command-connector" do
+      let(:use_rails_command_connector) { true }
+
+      it "updates the Gemfile" do
+        expect(outcome).to be_success
+
+        expect(
+          command.paths_to_source_code["Gemfile"]
+        ).to include('gem "foobara-rails-command-connector"')
+      end
+    end
+
+    context "when using foobara-active-record-type" do
+      let(:use_active_record_type) { true }
+
+      it "updates the Gemfile" do
+        expect(outcome).to be_success
+
+        expect(
+          command.paths_to_source_code["Gemfile"]
+        ).to include('gem "foobara-active-record-type"')
+      end
+    end
+
+    context "when generating a sample command" do
+      let(:include_sample_command) { true }
+
+      context "when using rspec" do
+        let(:rspec) { true }
+
+        it "updates the Gemfile" do
+          expect(outcome).to be_success
+
+          # TODO: make this test something useful
+          expect(
+            command.paths_to_source_code["Gemfile"]
+          ).to include('gem "foobara"')
+        end
+      end
     end
   end
 
