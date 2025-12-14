@@ -8,8 +8,12 @@ class ConstructGreeting < Foobara::Command
 
   result :string
 
-  possible_input_error :salutation, :threatening_to_capybaras, threatening_salutation: :string
-  possible_error :greeting_overreach, greetee: :string
+  possible_input_error :salutation, :threatening_to_capybaras,
+                       context: { threatening_salutation: :string },
+                       message: "Do not hiss around our capybaras!"
+  possible_error :greeting_overreach,
+                 context: { greetee: :string },
+                 message: "Can we keep custom salutations within this galaxy, please?"
 
   def execute
     normalize_greetee
@@ -26,8 +30,8 @@ class ConstructGreeting < Foobara::Command
     if salutation.strip =~ /\s*h*i*ss+\s*/i
       add_input_error :salutation,
                       :threatening_to_capybaras,
-                      threatening_salutation: salutation,
-                      message: "Do not hiss around our capybaras!"
+                      threatening_salutation: salutation
+
     end
   end
 
@@ -38,9 +42,8 @@ class ConstructGreeting < Foobara::Command
   end
 
   def check_for_greeting_overreach
-    if salutation != "Hello" && greetee == "Universe"
-      message = "Can we keep custom salutations within this galaxy, please?"
-      add_error :greeting_overreach, greetee:, message:
+    if normalized_salutation != "Hello" && normalized_greetee == "Universe"
+      add_runtime_error :greeting_overreach, greetee:
     end
   end
 
@@ -49,6 +52,6 @@ class ConstructGreeting < Foobara::Command
   end
 
   def build_greeting
-    self.greeting = "#{salutation}, #{greetee}!"
+    self.greeting = "#{normalized_salutation}, #{normalized_greetee}!"
   end
 end

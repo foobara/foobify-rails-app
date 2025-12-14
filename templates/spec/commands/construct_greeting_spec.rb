@@ -1,5 +1,5 @@
 RSpec.describe ConstructGreeting do
-  let(:command) { described_class.new(inputs) }
+  let(:command) { inputs ? described_class.new(inputs) : described_class.new }
   let(:outcome) { command.run }
   let(:result) { outcome.result }
   let(:errors) { outcome.errors }

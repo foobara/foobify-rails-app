@@ -23,7 +23,7 @@ module Foobara
             if match
               new_entry = 'config.eager_load_paths << Rails.root.join("app", "commands")'
 
-              "#{match.pre_match}\n#{new_entry}\n#{match}#{match.post_match}"
+              "#{match.pre_match}\n#{match}\n#{new_entry}#{match.post_match}"
             else
               # TODO: maybe print a warning and return the original Gemfile
               # :nocov:
