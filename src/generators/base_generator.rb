@@ -11,7 +11,9 @@ module Foobara
               when FoobifyRailsAppConfig
                 [
                   Generators::GemfileGenerator,
-                  ConfigApplicationGenerator
+                  ConfigApplicationGenerator,
+                  SampleCommandGenerator,
+                  SampleCommandSpecGenerator
                 ]
               else
                 # :nocov:

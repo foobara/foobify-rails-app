@@ -45,7 +45,12 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::WriteFoobifiedRailsFilesToD
 
       expect(
         command.paths_to_source_code.keys
-      ).to contain_exactly("Gemfile", "config/application.rb")
+      ).to contain_exactly(
+        "Gemfile",
+        "config/application.rb",
+        "app/commands/construct_greeting.rb",
+        "spec/commands/construct_greeting_spec.rb"
+      )
     end
 
     it "updates the Gemfile" do

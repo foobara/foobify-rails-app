@@ -27,6 +27,10 @@ module Foobara
         def use_rspec?
           rspec
         end
+
+        def include_sample_command?
+          include_sample_command
+        end
       end
     end
   end
