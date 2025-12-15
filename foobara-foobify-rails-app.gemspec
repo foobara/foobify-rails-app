@@ -1,3 +1,4 @@
+require "find"
 require_relative "version"
 
 Gem::Specification.new do |spec|
@@ -16,12 +17,13 @@ Gem::Specification.new do |spec|
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/main/CHANGELOG.md"
 
   spec.files = Dir[
-    "lib/**/*",
-    "src/**/*",
-    "LICENSE*.txt",
-    "README.md",
-    "CHANGELOG.md"
-  ]
+     "lib/**/*",
+     "src/**/*",
+     "LICENSE*.txt",
+     "README.md",
+     "CHANGELOG.md"
+     # NOTE: We can't just do "templates/**/*" because there can be hidden files/directories which are skipped
+   ] + Find.find("templates/").select { |f| File.file?(f) }
 
   spec.add_dependency "foobara", ">= 0.3.0", "< 2.0.0"
 
