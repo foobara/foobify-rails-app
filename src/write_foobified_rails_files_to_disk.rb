@@ -6,7 +6,7 @@ module Foobara
       class WriteFoobifiedRailsFilesToDisk < Foobara::Generators::WriteGeneratedFilesToDisk
         class << self
           def generator_key
-            "FoobifyRailsApp"
+            "foobify-rails-app"
           end
         end
 
