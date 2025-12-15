@@ -13,7 +13,8 @@ module Foobara
                   Generators::GemfileGenerator,
                   ConfigApplicationGenerator,
                   SampleCommandGenerator,
-                  SampleCommandSpecGenerator
+                  SampleCommandSpecGenerator,
+                  RoutesGenerator
                 ]
               else
                 # :nocov:
