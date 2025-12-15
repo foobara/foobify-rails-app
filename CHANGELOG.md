@@ -1,3 +1,7 @@
+## [0.0.3] - 2025-12-15
+
+- Don't require config arguments to be set
+
 ## [0.0.2] - 2025-12-15
 
 - Make generator key kebab case for consistency with other generators

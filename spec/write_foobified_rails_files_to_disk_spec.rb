@@ -48,6 +48,20 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::WriteFoobifiedRailsFilesToD
         command.paths_to_source_code["Gemfile"]
       ).to include('gem "foobara"')
     end
+
+    context "with no FoobifyRailsAppConfig used" do
+      let(:inputs) do
+        { output_directory: }
+      end
+
+      it "updates the Gemfile" do
+        expect(outcome).to be_success
+
+        expect(
+          command.paths_to_source_code["Gemfile"]
+        ).to include('gem "foobara"')
+      end
+    end
   end
 
   describe ".generator_key" do

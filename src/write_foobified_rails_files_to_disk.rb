@@ -13,7 +13,7 @@ module Foobara
         depends_on GenerateFoobifiedRailsFiles
 
         inputs do
-          foobify_rails_app_config FoobifyRailsAppConfig, :required
+          foobify_rails_app_config FoobifyRailsAppConfig, default: FoobifyRailsAppConfig.new
           # TODO: should be able to delete this and inherit it
           output_directory :string
         end

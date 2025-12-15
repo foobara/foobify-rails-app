@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foobara-foobify-rails-app (0.0.2)
+    foobara-foobify-rails-app (0.0.3)
       foobara (>= 0.3.0, < 2.0.0)
 
 GEM
@@ -21,7 +21,7 @@ GEM
     diff-lcs (1.6.2)
     docile (1.4.1)
     dotenv (3.2.0)
-    erb (6.0.0)
+    erb (6.0.1)
     extract-repo (1.0.0)
       foobara (< 2.0.0)
       foobara-sh-cli-connector (< 2.0.0)
@@ -36,13 +36,14 @@ GEM
     ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
     ffi (1.17.2-x86_64-linux-musl)
-    foob (0.1.0)
-      foobara (>= 0.1.1, < 2.0.0)
+    foob (0.1.1)
+      foobara (>= 0.3.0, < 2.0.0)
       foobara-command-generator (< 2.0.0)
       foobara-domain-generator (< 2.0.0)
       foobara-domain-mapper-generator (< 2.0.0)
       foobara-empty-ruby-project-generator (< 2.0.0)
       foobara-empty-typescript-react-project-generator (< 2.0.0)
+      foobara-foobify-rails-app (< 2.0.0)
       foobara-local-files-crud-driver-generator (< 2.0.0)
       foobara-mcp-connector-generator (< 2.0.0)
       foobara-organization-generator (< 2.0.0)
