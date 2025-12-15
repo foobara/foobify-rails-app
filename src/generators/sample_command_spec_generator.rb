@@ -11,7 +11,7 @@ module Foobara
           end
 
           def template_path
-            ["spec", "commands", "construct_greeting_spec.rb"]
+            ["spec", "commands", "construct_greeting_spec.rb.erb"]
           end
 
           def target_path

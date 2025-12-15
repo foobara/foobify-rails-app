@@ -42,9 +42,7 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
         command.paths_to_source_code.keys
       ).to contain_exactly(
         "Gemfile",
-        "config/application.rb",
-        "app/commands/construct_greeting.rb",
-        "spec/commands/construct_greeting_spec.rb"
+        "config/application.rb"
       )
     end
 
@@ -67,8 +65,6 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
         ).to contain_exactly(
           "Gemfile",
           "config/application.rb",
-          "app/commands/construct_greeting.rb",
-          "spec/commands/construct_greeting_spec.rb",
           "config/routes.rb"
         )
       end
