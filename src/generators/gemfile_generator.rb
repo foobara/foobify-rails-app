@@ -41,7 +41,7 @@ module Foobara
             if match
               new_entries = []
 
-              new_entries << 'gem "foobara"' if need_to_add_foobara?
+              new_entries << 'gem "foobara", "<= 2.0.0"' if need_to_add_foobara?
               new_entries << 'gem "foobara-active-record-type"' if need_to_add_foobara_active_record_type?
               new_entries << 'gem "foobara-rails-command-connector"' if need_to_add_foobara_rails_command_connector?
 

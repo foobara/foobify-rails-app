@@ -21,7 +21,7 @@ module Foobara
             match = application_rb_contents.match(/class\s+Application\s*<.*Application\b/)
 
             if match
-              new_entry = 'config.eager_load_paths << Rails.root.join("app", "commands")'
+              new_entry = '  config.eager_load_paths << Rails.root.join("app", "commands")'
 
               "#{match.pre_match}\n#{match}\n#{new_entry}#{match.post_match}"
             else
