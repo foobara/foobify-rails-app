@@ -96,6 +96,19 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
             command.paths_to_source_code["Gemfile"]
           ).to include('gem "foobara"')
         end
+
+        it "generates the expected files" do
+          expect(outcome).to be_success
+
+          expect(
+            command.paths_to_source_code.keys
+          ).to contain_exactly(
+            "Gemfile",
+            "config/application.rb",
+            "app/commands/construct_greeting.rb",
+            "spec/commands/construct_greeting_spec.rb"
+          )
+        end
       end
     end
   end
