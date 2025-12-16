@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foobara-foobify-rails-app (0.0.6)
+    foobara-foobify-rails-app (0.0.7)
       foobara (>= 0.3.0, < 2.0.0)
 
 GEM

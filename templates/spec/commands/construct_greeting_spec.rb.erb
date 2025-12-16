@@ -3,42 +3,54 @@ RSpec.describe ConstructGreeting do
   let(:outcome) { command.run }
   let(:result) { outcome.result }
   let(:errors) { outcome.errors }
+  let(:errors_hash) { outcome.errors_hash }
 
   let(:inputs) { nil }
 
-  it "constructs 'Hello, World!'" do
-    expect(outcome).to be_success
-    expect(result).to eq("Hello, World!")
-  end
-
-  context "when constructing a custom greeting" do
-    let(:inputs) do
-      { salutation: "howdy", greetee: "y'all" }
-    end
-
-    it "constructs the custom greeting" do
+  describe "#run" do
+    it "constructs 'Hello, World!'" do
       expect(outcome).to be_success
-      expect(result).to eq("Howdy, Y'all!")
-    end
-  end
-
-  context "when hissing" do
-    let(:inputs) do
-      { salutation: "hiss" }
+      expect(result).to eq("Hello, World!")
     end
 
-    it "is an error" do
-      expect(outcome).to_not be_success
-    end
-  end
+    context "when constructing a custom greeting" do
+      let(:inputs) do
+        { salutation: "howdy", greetee: "y'all" }
+      end
 
-  context "when using a custom salutation to the universe" do
-    let(:inputs) do
-      { salutation: "howdy", greetee: "universe" }
+      it "constructs the custom greeting" do
+        expect(outcome).to be_success
+        expect(result).to eq("Howdy, Y'all!")
+      end
     end
 
-    it "is an error" do
-      expect(outcome).to_not be_success
+    context "when hissing" do
+      let(:inputs) do
+        { salutation: "hiss" }
+      end
+
+      it "is an error" do
+        expect(outcome).to_not be_success
+
+        error_hash = errors_hash["data.salutation.threatening_to_capybaras"]
+
+        expect(error_hash[:path]).to eq([:salutation])
+        expect(error_hash[:context][:threatening_salutation]).to eq("hiss")
+        expect(errors.first).to be_a(ConstructGreeting::ThreateningToCapybarasError)
+      end
+    end
+
+    context "when using a custom salutation to the universe" do
+      let(:inputs) do
+        { salutation: "howdy", greetee: "universe" }
+      end
+
+      it "is an error" do
+        expect(outcome).to_not be_success
+
+        expect(errors_hash["runtime.greeting_overreach"][:context]).to eq(greetee: "universe")
+        expect(errors.first).to be_a(ConstructGreeting::GreetingOverreachError)
+      end
     end
   end
 end
