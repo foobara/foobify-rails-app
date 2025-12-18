@@ -68,6 +68,23 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
           "config/routes.rb"
         )
       end
+
+      context "when including a sample command" do
+        let(:include_sample_command) { true }
+
+        it "generates the expected files" do
+          expect(outcome).to be_success
+
+          expect(
+            command.paths_to_source_code.keys
+          ).to contain_exactly(
+            "Gemfile",
+            "config/application.rb",
+            "config/routes.rb",
+            "app/commands/construct_greeting.rb"
+          )
+        end
+      end
     end
 
     context "when using foobara-active-record-type" do
