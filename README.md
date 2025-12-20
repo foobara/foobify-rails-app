@@ -1,6 +1,9 @@
-# FoobifyRailsApp
+# foobify-rails-app
 
 This is a code generator for quickly wiring up foobara to an existing Rails application.
+It can be helpful if you want to use Foobara as a service-object layer or if you'd like
+to use Foobara's automatic-integration features while still having access to aspects of the
+Rails ecosystem.
 
 ## Installation
 
@@ -20,50 +23,77 @@ You can see the options with `foob help foobify-rails-app` or `foob h foobify-ra
 $ foob help foobify-rails-app
 ```
 
-#### Using foobara as a service-object solution in an existing Rails application
+#### Using Foobara as a service-object layer for an existing Rails app
 
-You would only need to run it with:
+You can wire up your Rails app with Foobara commands with the following:
 
 ```
 $ foob g foobify-rails-app
 ```
 
-TODO: Finish this up once deployed and added to `foob`
-
-If you're new to Foobara and want a sample command generated, you can run:
-
-#### Exposing Foobara through the Rails router with foobara-rails-command-generator
-
-If you want to expose your Foobara commands such that they can be used by external tools like
-code generators (to generate a TypeScript SDK, for example), MCP servers, etc, then run:
-
-TODO
-
-#### Letting ActiveRecord Models be used as if they were Foobara types
-
-You can run:
-
-This will allow you to use active record as types like so:
-
-```ruby
-TODO
+If you'd like to have a sample command generated, which is probably a good idea if you're a n00bz of teh f00bz,
+you can run:
 
 ```
+$ foob g foobify-rails-app --include-sample-command
+```
 
-You can do this without `foobara-active-record-type` and Foobara will still guarantee that what is
-passed in is an instance of that active record class. But with `foobara-active-record-type` you can
-get additional foobara-entity-like behaviors, such as automatically casting primary keys to records
-and being able to make use of the record attributes in code generators if, for example, you wanted
-to quickly generate a TypeScript React form as a starting point for working with your 
-ActiveRecord class.
+Here's an example of calling a Foobara command from a JSON API controller:
+
+```ruby
+class GreetingsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:create]
+
+  def create
+    inputs = params.permit(:greetee, :salutation).to_h.symbolize_keys
+    outcome = ConstructGreeting.run(inputs)
+
+    if outcome.success?
+      render json: outcome.result
+    else
+      render json: outcome.errors, status: :unprocessable_entity
+    end
+  end
+end
+```
+
+Notice that we don't have domain logic in our controller action. Calling this command from a job or
+rake task or whatever is now easier due to the code reuse.
+
+And if you want an RSpec spec also generated for the sample command, you can run:
+
+```
+$ foob g foobify-rails-app --include-sample-command --rspec
+```
+
+#### Using Foobara's automatic-integration features
+
+If you'd like to see what it's like to use Foobara directly instead of through routes/controller actions,
+you can run:
+
+```
+$ foob g foobify-rails-app --rails-command-connector --include-sample-command
+```
+
+And then you can hit `localhost:3000/help` or `localhost:3000/run/ConstructGreeting` to run
+your commands RPC-style instead of REST style.
+
+If you would like to make use of the `foobara-active-record-type` gem, you can run:
+
+```
+$ foob g foobify-rails-app --active-record-type
+```
+
+and this will let you use ActiveRecord classes as if they were Foobara entities.
+
+This would let you pass primary keys to commands instead of records, for example. You could also
+generate react forms for your commands and typescript-react-form-generator will be aware of the 
+attributes of your ActiveRecord models and make UI fields for them.
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub
 at https://github.com/foobara/foobify-rails-app
-
-You can find a contributing guide in the foobara monorepo here: 
-https://github.com/foobara/foobara/blob/main/CONTRIBUTING.md
 
 ## License
 
