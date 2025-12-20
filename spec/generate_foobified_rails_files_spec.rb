@@ -6,14 +6,14 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
   let(:inputs) do
     {
       include_sample_command:,
-      use_rails_command_connector:,
-      use_active_record_type:,
+      rails_command_connector:,
+      active_record_type:,
       rspec:
     }
   end
   let(:include_sample_command) { false }
-  let(:use_rails_command_connector) { false }
-  let(:use_active_record_type) { false }
+  let(:rails_command_connector) { false }
+  let(:active_record_type) { false }
   let(:rspec) { false }
 
   let(:test_project) { "rails-test-app" }
@@ -47,7 +47,7 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
     end
 
     context "when using foobara-rails-command-connector" do
-      let(:use_rails_command_connector) { true }
+      let(:rails_command_connector) { true }
 
       it "updates the Gemfile" do
         expect(outcome).to be_success
@@ -88,7 +88,7 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
     end
 
     context "when using foobara-active-record-type" do
-      let(:use_active_record_type) { true }
+      let(:active_record_type) { true }
 
       it "updates the Gemfile" do
         expect(outcome).to be_success

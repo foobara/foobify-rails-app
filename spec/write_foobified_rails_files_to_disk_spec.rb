@@ -12,14 +12,14 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::WriteFoobifiedRailsFilesToD
   let(:foobify_rails_app_config) do
     Foobara::Generators::FoobifyRailsApp::FoobifyRailsAppConfig.new(
       include_sample_command:,
-      use_rails_command_connector:,
-      use_active_record_type:,
+      rails_command_connector:,
+      active_record_type:,
       rspec:
     )
   end
   let(:include_sample_command) { false }
-  let(:use_rails_command_connector) { false }
-  let(:use_active_record_type) { false }
+  let(:rails_command_connector) { false }
+  let(:active_record_type) { false }
   let(:rspec) { false }
 
   let(:test_project) { "rails-test-app" }
