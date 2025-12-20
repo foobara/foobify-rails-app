@@ -18,7 +18,7 @@ module Foobara
                                           "as if they were Foobara entities."
           rspec :boolean,
                 default: false,
-                description: "If including a sample command then  " \
+                description: "If including a sample command then " \
                              "this will also generate an RSpec spec for the sample command."
         end
 

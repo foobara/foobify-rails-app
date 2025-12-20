@@ -1,3 +1,8 @@
+## [0.0.9] - 2025-12-19
+
+- Make --include-sample-command default to false
+- Improve config descriptions/interface
+
 ## [0.0.8] - 2025-12-18
 
 - Improve some formatting in the generated output
