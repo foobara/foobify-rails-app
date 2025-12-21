@@ -42,7 +42,7 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
         command.paths_to_source_code.keys
       ).to contain_exactly(
         "Gemfile",
-        "config/application.rb"
+        "config/initializers/foobara.rb"
       )
     end
 
@@ -64,8 +64,8 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
           command.paths_to_source_code.keys
         ).to contain_exactly(
           "Gemfile",
-          "config/application.rb",
-          "config/routes.rb"
+          "config/routes.rb",
+          "config/initializers/foobara.rb"
         )
       end
 
@@ -79,7 +79,7 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
             command.paths_to_source_code.keys
           ).to contain_exactly(
             "Gemfile",
-            "config/application.rb",
+            "config/initializers/foobara.rb",
             "config/routes.rb",
             "app/commands/construct_greeting.rb"
           )
@@ -121,7 +121,7 @@ RSpec.describe Foobara::Generators::FoobifyRailsApp::GenerateFoobifiedRailsFiles
             command.paths_to_source_code.keys
           ).to contain_exactly(
             "Gemfile",
-            "config/application.rb",
+            "config/initializers/foobara.rb",
             "app/commands/construct_greeting.rb",
             "spec/commands/construct_greeting_spec.rb"
           )
