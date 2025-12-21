@@ -11,7 +11,6 @@ module Foobara
               when FoobifyRailsAppConfig
                 [
                   Generators::GemfileGenerator,
-                  ConfigApplicationGenerator,
                   SampleCommandGenerator,
                   SampleCommandSpecGenerator,
                   RoutesGenerator
