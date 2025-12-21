@@ -1,3 +1,9 @@
+## [0.0.10] - 2025-12-21
+
+- Rename gem from foobara-foobify-rails-app to foobify-rails-app
+- Add config/intializers/foobara.rb to support hot reloading
+- Eliminate unnecessary "app/commands" eager load
+
 ## [0.0.9] - 2025-12-19
 
 - Make --include-sample-command default to false

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foobara-foobify-rails-app (0.0.9)
+    foobify-rails-app (0.0.10)
       foobara (>= 0.3.0, < 2.0.0)
 
 GEM
@@ -82,6 +82,8 @@ GEM
       foobara-files-generator (< 2.0.0)
     foobara-files-generator (0.1.1)
       foobara (>= 0.1.1, < 2.0.0)
+    foobara-foobify-rails-app (0.0.9)
+      foobara (>= 0.3.0, < 2.0.0)
     foobara-local-files-crud-driver-generator (0.0.3)
       foobara
       foobara-files-generator
@@ -125,7 +127,7 @@ GEM
     foobara-typescript-remote-command-generator (1.2.1)
       foobara (>= 0.1.16, < 2.0.0)
       foobara-files-generator (< 2.0.0)
-    foobara-util (1.0.6)
+    foobara-util (1.0.7)
     formatador (1.2.3)
       reline
     guard (2.19.1)
@@ -272,9 +274,9 @@ PLATFORMS
 DEPENDENCIES
   foob
   foobara-dotenv-loader (< 2.0.0)
-  foobara-foobify-rails-app!
   foobara-rubocop-rules (>= 1.0.0)
   foobara-spec-helpers (< 2.0.0)
+  foobify-rails-app!
   guard-rspec
   irb
   pry

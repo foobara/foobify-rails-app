@@ -2,12 +2,12 @@ require "find"
 require_relative "version"
 
 Gem::Specification.new do |spec|
-  spec.name = "foobara-foobify-rails-app"
+  spec.name = "foobify-rails-app"
   spec.version = Foobara::FoobifyRailsApp::VERSION
   spec.authors = ["Miles Georgi"]
   spec.email = ["azimux@gmail.com"]
 
-  spec.summary = "Generates the minimum plumbing to use foobara in an existing rails app"
+  spec.summary = "Generates plumbing to use foobara in an existing rails app"
   spec.homepage = "https://github.com/foobara/foobify-rails-app"
   spec.license = "MPL-2.0"
   spec.required_ruby_version = Foobara::FoobifyRailsApp::MINIMUM_RUBY_VERSION
