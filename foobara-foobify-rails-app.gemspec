@@ -17,15 +17,21 @@ Gem::Specification.new do |spec|
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/main/CHANGELOG.md"
 
   spec.files = Dir[
-     "lib/**/*",
-     "src/**/*",
-     "LICENSE*.txt",
-     "README.md",
-     "CHANGELOG.md"
+    "bin/foobify-rails-app",
+    "lib/**/*",
+    "src/**/*",
+    "LICENSE*.txt",
+    "README.md",
+    "CHANGELOG.md"
      # NOTE: We can't just do "templates/**/*" because there can be hidden files/directories which are skipped
    ] + Find.find("templates/").select { |f| File.file?(f) }
 
+  spec.bindir = "bin"
+  spec.executables = ["foobify-rails-app"]
+
   spec.add_dependency "foobara", ">= 0.3.0", "< 2.0.0"
+  spec.add_dependency "foobara-files-generator", "< 2.0.0"
+  spec.add_dependency "foobara-sh-cli-connector", "< 2.0.0"
 
   spec.require_paths = ["lib"]
   spec.metadata["rubygems_mfa_required"] = "true"

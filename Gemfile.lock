@@ -1,8 +1,10 @@
 PATH
   remote: .
   specs:
-    foobify-rails-app (0.0.11)
+    foobify-rails-app (0.0.12)
       foobara (>= 0.3.0, < 2.0.0)
+      foobara-files-generator (< 2.0.0)
+      foobara-sh-cli-connector (< 2.0.0)
 
 GEM
   remote: https://rubygems.org/

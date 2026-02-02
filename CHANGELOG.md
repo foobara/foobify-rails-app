@@ -1,3 +1,7 @@
+## [0.0.12] - 2026-02-02
+
+- Add a foobify-rails-app executable
+
 ## [0.0.11] - 2026-02-02
 
 - Add code comments to generated foobara.rb initializer

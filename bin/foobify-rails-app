@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+gemfile_path = File.expand_path("../Gemfile", __dir__)
+
+if File.exist?(gemfile_path)
+  # Seems we are not being ran as a gem executable. Let's bundle since we might be in a test or
+  # we might be pointed at via path: or some other similar situation.
+  ENV["BUNDLE_GEMFILE"] ||= gemfile_path
+  require "bundler/setup"
+end
+
+require "foobara/sh_cli_connector"
+require "foobara/foobify_rails_app"
+
+Foobara::CommandConnectors::ShCliConnector.new(
+  single_command_mode: Foobara::Generators::FoobifyRailsApp::WriteFoobifiedRailsFilesToDisk
+).run
