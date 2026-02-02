@@ -1,3 +1,7 @@
+## [0.0.11] - 2026-02-02
+
+- Add code comments to generated foobara.rb initializer
+
 ## [0.0.10] - 2025-12-21
 
 - Rename gem from foobara-foobify-rails-app to foobify-rails-app
