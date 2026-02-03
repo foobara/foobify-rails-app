@@ -1,3 +1,7 @@
+## [0.0.13] - 2026-02-03
+
+- Allow use in production mode by skipping the to_prepare hook
+
 ## [0.0.12] - 2026-02-02
 
 - Add a foobify-rails-app executable

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foobify-rails-app (0.0.12)
+    foobify-rails-app (0.0.13)
       foobara (>= 0.3.0, < 2.0.0)
       foobara-files-generator (< 2.0.0)
       foobara-sh-cli-connector (< 2.0.0)
@@ -83,7 +83,7 @@ GEM
     foobara-empty-typescript-react-project-generator (0.1.0)
       foobara (>= 0.1.1, < 2.0.0)
       foobara-files-generator (< 2.0.0)
-    foobara-files-generator (0.1.1)
+    foobara-files-generator (0.1.2)
       foobara (>= 0.1.1, < 2.0.0)
     foobara-local-files-crud-driver-generator (0.0.3)
       foobara
@@ -153,7 +153,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.18.0)
+    json (2.18.1)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     listen (3.10.0)
@@ -216,7 +216,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.7)
-    rubocop (1.84.0)
+    rubocop (1.84.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
