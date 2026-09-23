@@ -16,9 +16,9 @@ module Foobara
                   RoutesGenerator
                 ]
               else
-                # :nocov:
+                # simplecov:disable
                 raise "Not sure how build a generator for a #{manifest}"
-                # :nocov:
+                # simplecov:enable
               end
             end
           end
@@ -26,9 +26,9 @@ module Foobara
           alias foobify_rails_app_config relevant_manifest
 
           def templates_dir
-            # :nocov:
+            # simplecov:disable
             "#{__dir__}/../../templates"
-            # :nocov:
+            # simplecov:enable
           end
         end
       end

@@ -50,9 +50,9 @@ module Foobara
         # TODO: is this not in the base class?
         def bundle_install
           unless File.exist?("Gemfile")
-            # :nocov:
+            # simplecov:disable
             return
-            # :nocov:
+            # simplecov:enable
           end
 
           puts "bundling..."
@@ -63,9 +63,9 @@ module Foobara
               exit_status = wait_thr.value
 
               unless exit_status.success?
-                # :nocov:
+                # simplecov:disable
                 warn "WARNING: could not #{cmd}\n#{stderr.read}"
-                # :nocov:
+                # simplecov:enable
               end
             end
           end
@@ -74,9 +74,9 @@ module Foobara
         # TODO: is this not in the base class?
         def rubocop_autocorrect
           unless File.exist?(".rubocop.yml")
-            # :nocov:
+            # simplecov:disable
             return
-            # :nocov:
+            # simplecov:enable
           end
 
           puts "linting..."
@@ -86,9 +86,9 @@ module Foobara
             Open3.popen3(cmd) do |_stdin, stdout, stderr, wait_thr|
               exit_status = wait_thr.value
               unless exit_status.success?
-                # :nocov:
+                # simplecov:disable
                 warn "WARNING: could not #{cmd}.\n#{stdout.read}\n#{stderr.read}"
-                # :nocov:
+                # simplecov:enable
               end
             end
           end
